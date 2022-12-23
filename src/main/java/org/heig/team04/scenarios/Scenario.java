@@ -13,7 +13,20 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
+/**
+ * This class is used to split the different scenarios.
+ *
+ * @author Ivan Vecerina, Yanik Lange
+ * @version 1.0
+ *
+ */
 public class Scenario {
+
+    /**
+     * Scenario of root object and image already existing
+     *
+     * @throws IOException If an error occurs
+     */
     public static void runRootObjectAndImageExists() throws IOException {
         System.out.println("=== creating image ===");
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -94,6 +107,11 @@ public class Scenario {
         }
     }
 
+    /**
+     * Scenario of root object existing bot not the image
+     *
+     * @throws IOException If an error occurs
+     */
     public static void runRootObjectExistNoImageScenario() throws IOException {
         System.out.println("=== creating image ===");
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -174,6 +192,12 @@ public class Scenario {
 
 
 
+    /**
+     * Scenario of root object and image not existing.
+     * Not used as it is not recommended to create/delete buckets.
+     *
+     * @throws IOException If an error occurs
+     */
     void runEverythingNewScenario() throws IOException {
         System.out.println("=== creating image ===");
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -204,7 +228,6 @@ public class Scenario {
 
             HttpEntity entity = linkResponse.getEntity();
             if (entity != null) {
-                // return it as a String
                 String result = EntityUtils.toString(entity);
                 System.out.println(result);
             }
@@ -223,7 +246,6 @@ public class Scenario {
 
             HttpEntity entity = analyzeResponse.getEntity();
             if (entity != null) {
-                // return it as a String
                 String result = EntityUtils.toString(entity);
                 System.out.println(result);
                 responseArray = result.getBytes();
@@ -243,7 +265,6 @@ public class Scenario {
 
             HttpEntity entity = PostResultResponse.getEntity();
             if (entity != null) {
-                // return it as a String
                 String result = EntityUtils.toString(entity);
                 System.out.println(result);
             }
@@ -252,6 +273,14 @@ public class Scenario {
         }
     }
 
+    /**
+     * Utils fonction to create post requests
+     * @param endpoint the endpoint we want to reach
+     * @param body json string with the body content
+     * @return a HTTP post request that can be executed afterward
+     *
+     * @throws UnsupportedEncodingException if the encoding of the body is not supported.
+     */
     static HttpPost creatingPostRequest(String endpoint, String body) throws UnsupportedEncodingException {
         HttpPost postRequest = new HttpPost(endpoint);
         postRequest.addHeader(HttpHeaders.CONTENT_TYPE, "application/json");

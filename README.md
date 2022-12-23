@@ -25,12 +25,14 @@ At this point the API is not yet implemented, and the repository is only contain
 
 * Java 11 (or higher)
 * Maven 
+* Apache Http
 * AWS credentials
 * Docker
 * The following microservices running on your machine as docker containers :
     * Simple Storage Microservice (link to the repository above)
     * Label Detection Microservice (link to the repository above)
 
+  
 ### **Why Maven ?**
 
 > Maven enables us to manage the project's build, reporting and documentation from a central piece of information. Maven is a build automation tool used primarily for Java projects. Maven addresses two aspects of building software: first, it describes how software is built, and second, it describes its dependencies. Maven is used to build and manage projects based on the Project Object Model (POM). 
@@ -39,6 +41,9 @@ At this point the API is not yet implemented, and the repository is only contain
 
 > Docker enables us to package an application with all of its dependencies into a standardized unit for software development that includes everything it needs to run: code, runtime, system tools, system libraries and settings. Making our application portable and easy to run on any machine.
 
+### **Why Apache Http ?**
+> Easy open source project that allows to use its components to do fast custom http requests with less code to write
+> than classic Java http requests. 
 ### **Install Dependencies**
 
 - To install Java 11 on your machine you can follow the following tutorial : https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
@@ -74,37 +79,59 @@ Variable : **AWS_SECRET_ACCESS_KEY** Value : **<your_aws_secret_key>**
 Example how to set environment variable on windows :
 https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0
 
-> TODO ajouter les commandes pour récupérer les dépendances
+
+To get the apache Http dependencies, run the following command :
+
+```mvn install```
 
 > TODO ajouter les commandes pour compiler, ainsi que quelque explications sur comment et pourquoi vous utilisez Maven 
 
+To compile the project, use the following command :
+
+```mvn compile```
 > TODO ajouter la commande sur comment lancer un ou tout les tests 
 
+To generate a package use :
+
+```mvn package```
+
+To run the tests use :
+
+```mvn test```
 
 ## **Run the Test Scenarios on your machine**
 
 Now that you have everything set up, you can run the test scenarios on your machine.
 
 
-### **Run on your machine TODO**
+### **Run on your machine**
 
-Download the latest **.jar** release on the **Release** section in this github repository.
+Attention! Keep in mind that the 2 microservices ([Simple Storage Microservice](https://github.com/Lange-Vecerina/AMT_TEAM04-Project_DataObject)
+and [Label Detection Microservice](https://github.com/Lange-Vecerina/AMT_TEAM04-Project_LabelDetector)) need to run before we launch the main.
+
+To Download the latest **.jar** release on the **Release** section in this github repository.
 
 Open a *cmd/terminal* and go the directory where you saved your downloaded **.jar**.
 
-To run the program enter the following command : 
+To run the main program enter the following command : 
 
-```java -jar lab3_rekognition-v1-shaded.jar "<your_path_of_the_image_you_want_to_label>"```
+```java -jar API-1.0-SNAPSHOT.jar```
 
-Example of a **fruits.jpg** image in ```D:/image/``` folder :
 
-```java -jar lab3_rekognition-v1-shaded.jar "D:/image/fruits.jpg"```
 
-This will generate 2 temporary links to the bucket :
+This will run the following scenario tests :
 
-* The first links to the bucket where the image you asked to be labeled by Amazon Rekognition is.
-* The second links to the result of the labeling (in the bucket too).
+Try to create an image in the root object, then gets link of it, tries to analyze it and stores
+the result in the root object at the same folder of the image.
 
-## Backlog TODO
+It will do it with 3 different scenarios :
 
-[Backlog](https://github.com/orgs/Lange-Vecerina/projects/2)
+* The root object and the image already exists.
+* The root object exists but not the image.
+* Nether the root object or the image exists. (During the project we where told to not create/delete buckets because it can cause some issues creating the bucket again. So the following scenario is commented in the Main.java)
+
+## Backlog
+
+[Backlog](https://github.com/orgs/Lange-Vecerina/projects/3/views/1?layout=board)
+
+

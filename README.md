@@ -37,7 +37,7 @@ At this point the API is not yet implemented, and the repository is only contain
 
 ### **Why Docker ?**
 
-Docker enables us to package an application with all of its dependencies into a standardized unit for software development that includes everything it needs to run: code, runtime, system tools, system libraries and settings. Making our application portable and easy to run on any machine.
+> Docker enables us to package an application with all of its dependencies into a standardized unit for software development that includes everything it needs to run: code, runtime, system tools, system libraries and settings. Making our application portable and easy to run on any machine.
 
 ### **Install Dependencies**
 

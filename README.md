@@ -84,12 +84,9 @@ To get the apache Http dependencies, run the following command :
 
 ```mvn install```
 
-> TODO ajouter les commandes pour compiler, ainsi que quelque explications sur comment et pourquoi vous utilisez Maven 
-
 To compile the project, use the following command :
 
 ```mvn compile```
-> TODO ajouter la commande sur comment lancer un ou tout les tests 
 
 To generate a package use :
 

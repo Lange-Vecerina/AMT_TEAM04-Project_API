@@ -43,7 +43,7 @@ At this point the API is not yet implemented, and the repository is only contain
 
 ### **Why Apache Http ?**
 > Easy open source project that allows to use its components to do fast custom http requests with less code to write
-> than classic Java http requests. 
+> than classic Java http requests.
 ### **Install Dependencies**
 
 - To install Java 11 on your machine you can follow the following tutorial : https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
@@ -62,9 +62,9 @@ To run the microservices you need to pull the docker images from the docker hub 
 
 **Run the images :**
 
-    docker run -p 8080:8080 ghcr.io/lange-vecerina/amt_team04-project_dataobject:latest
+    docker run -p 8080:8080 -e AWS_ACCESS_KEY_ID=<AWS_KEY> -e AWS_SECRET_ACCESS_KEY=<AWS_SECRET> ghcr.io/lange-vecerina/amt_team04-project_dataobject
 >
-    docker run -p 8081:8081 ghcr.io/lange-vecerina/amt_team04-project_labeldetector:latest
+    docker run -p 8081:8081 -e AWS_ACCESS_KEY_ID=<AWS_KEY> -e AWS_SECRET_ACCESS_KEY=<AWS_SECRET> ghcr.io/lange-vecerina/amt_team04-project_labeldetector
 
 
 ## **Adapt personal settings**
@@ -112,7 +112,7 @@ Open a *cmd/terminal* and go the directory where you saved your downloaded **.ja
 
 To run the main program enter the following command : 
 
-```java -jar API-1.0-SNAPSHOT.jar```
+```java -jar API-1.0-SNAPSHOT-shaded.jar```
 
 
 
